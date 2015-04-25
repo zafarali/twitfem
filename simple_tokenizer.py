@@ -38,5 +38,6 @@ def removable(token):
 # pre_processor
 def pre_process(string, lowercase=False):
   tokens = tokenize(string)
-  tokens = [ token for token in tokens if not removable(token)]
+  tokens = [ token.lower() for token in tokens if not removable(token)]
   return tokens
+
