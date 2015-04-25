@@ -3,6 +3,7 @@ import pandas as pd
 
 
 def countit(df, thisClass):
+    df = df[df['class']==thisClass]
     numItems = len(df)
     count = Counter()
     for key, row in df.iterrows():
