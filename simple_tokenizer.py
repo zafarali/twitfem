@@ -1,17 +1,7 @@
 import csv
-import numpy as np
+import re
 
-
-file_name = 'curated/davidt1.csv'
-
-# load the data into memory
-with open(file_name, 'rt') as csvfile:
-	data = {}
-	reader = csv.reader(csvfile)
-	for row in reader:
-		data[str(row[1])] = {'tweet':row[2], 'class':row[3], 'id':row[1] }
-
-
+## emoticons
 emoticons_str = r"""
   (?:
     [:=;] # Eyes
@@ -19,6 +9,7 @@ emoticons_str = r"""
     [D\)\]\(\]/\\OpP] # Mouth
   )"""
  
+## words
 regex_str = [
   emoticons_str,
   r'<[^>]+>', # HTML tags
@@ -32,24 +23,20 @@ regex_str = [
   r'(?:\S)' # anything else
 ]
 
-#import the tokenizers and regex module
-import re
-
+## compile regex
 tokens_re = re.compile(r'('+'|'.join(regex_str)+')', re.VERBOSE | re.IGNORECASE)
 emoticon_re = re.compile(r'^'+emoticons_str+'$', re.VERBOSE | re.IGNORECASE)
 
 def tokenize(string):
 	return tokens_re.findall(string)
 
+def removable(token):
+	isEmoticon = True if emoticon_re.search(token) else False
+	isRemovable = token in [',', '.', ':', ';']
+	return (isEmoticon or isRemovable)
+
+# pre_processor
 def pre_process(string, lowercase=False):
 	tokens = tokenize(string)
-	if lowercase:
-		tokens = [token if emoticon_re.search(token) else token.lower() for token in tokens]
+	tokens = [ token for token in tokens if not removable(token)]
 	return tokens
-
-
-# tweets processed
-print('-------TWEETS PROCESSED-----')
-for key,val in data.items():
-    print(pre_process(val['tweet']))
-
