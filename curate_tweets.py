@@ -18,21 +18,24 @@ def curate_tweets(filename, col_id, col_tweet, num_rows, out_filename):
     print("[0-9] for classes, b for back, s for save, x for exit")
 
     while i < end_i:
-        print(df_out[col_tweet].iloc[i])
-        resp = input("class --> ")
-        if resp == "x":
-            i = end_i
-            tosave = input("Save? (y/n): ")
-            if tosave in ["y", "Y", "yes", "YES", "Yes"]:
-                df_out.to_csv(out_filename+'.csv')     
-        elif resp == 'b':
-            i -= 1
-            df_out.loc[i, 'class'] = np.nan
-        elif resp == 's':
-            df_out.to_csv(out_filename+'.csv') 
-        elif 0 <= int(resp) <= 9:
-            df_out.loc[i, 'class'] = int(resp)
-            i += 1
-  
-        else:
-            print ('*** INVALID ENTRY, TRY AGAIN ***')
+        try:
+            print(df_out[col_tweet].iloc[i])
+            resp = input("class --> ")
+            if resp == "x":
+                i = end_i
+                tosave = input("Save? (y/n): ")
+                if tosave in ["y", "Y", "yes", "YES", "Yes"]:
+                    df_out.to_csv(out_filename+'.csv')     
+            elif resp == 'b':
+                i -= 1
+                df_out.loc[i, 'class'] = np.nan
+            elif resp == 's':
+                df_out.to_csv(out_filename+'.csv') 
+            elif 0 <= int(resp) <= 9:
+                df_out.loc[i, 'class'] = int(resp)
+                i += 1
+      
+            else:
+                print ('*** INVALID ENTRY, TRY AGAIN ***')
+        except:
+            pass
