@@ -28,15 +28,15 @@ tokens_re = re.compile(r'('+'|'.join(regex_str)+')', re.VERBOSE | re.IGNORECASE)
 emoticon_re = re.compile(r'^'+emoticons_str+'$', re.VERBOSE | re.IGNORECASE)
 
 def tokenize(string):
-	return tokens_re.findall(string)
+  return tokens_re.findall(string)
 
 def removable(token):
-	isEmoticon = True if emoticon_re.search(token) else False
-	isRemovable = token in [',', '.', ':', ';']
-	return (isEmoticon or isRemovable)
+  isEmoticon = True if emoticon_re.search(token) else False
+  isRemovable = token in [',', '.', ':', ';', '\\']
+  return (isEmoticon or isRemovable)
 
 # pre_processor
 def pre_process(string, lowercase=False):
-	tokens = tokenize(string)
-	tokens = [ token for token in tokens if not removable(token)]
-	return tokens
+  tokens = tokenize(string)
+  tokens = [ token for token in tokens if not removable(token)]
+  return tokens
