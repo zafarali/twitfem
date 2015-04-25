@@ -33,10 +33,11 @@ def curate_tweets(filename, col_id, col_tweet, num_rows, out_filename):
         elif resp == 'b':
             i -= 1
             df_out.loc[i, 'class'] = np.nan
+        elif resp == 's':
+            df_out.to_csv(out_filename+'.csv') 
         elif 0 <= int(resp) <= 9:
             df_out.loc[i, 'class'] = int(resp)
             i += 1
-        elif resp == 's':
-            df_out.to_csv(out_filename+'.csv')    
+  
         else:
             print ('*** INVALID ENTRY, TRY AGAIN ***')
