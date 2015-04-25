@@ -3,11 +3,6 @@ import numpy as np
 
 def curate_tweets(filename, col_id, col_tweet, num_rows, out_filename):
     df_in = pd.read_csv(filename, encoding='latin-1')
-    col_id = 'id'
-    col_tweet = 'tweet'
-    num_rows = 1000
-    out_filename = 'feminist_classified'
-
 
     rows = np.random.choice(df_in.index.values, num_rows)
     df_out = df_in.ix[rows]
