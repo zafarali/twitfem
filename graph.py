@@ -6,9 +6,12 @@ import csv
 
 
 data = pd.read_csv('loglikelihoods.csv')
+data = data.drop(data.index[:1])
+data = data.drop(data.index[-1:])
 
-positivedata = data[:10]
-negativedata = data[-10:]
+positivedata = data[:11]
+negativedata = data[-11:]
+
 positivedata.sort(columns=['loglikely'], ascending=False, inplace = True )
 negativedata.sort(columns=['loglikely'], ascending=False, inplace = True )
 
@@ -39,6 +42,7 @@ def pickColor(value, what='COLOR'):
 positive = Bar(
 		y = positive_words,
 		x = positive_values,
+		name='Pro Feminist',
 		marker = Marker(
 				color = [ pickColor(i) for i in positive_values ]
 			),
@@ -48,6 +52,7 @@ positive = Bar(
 negative = Bar(
 		y = negative_words,
 		x = negative_values,
+		name='Anti Feminist',
 		marker=Marker(
 			color = [ pickColor(i) for i in negative_values] 
 		),
