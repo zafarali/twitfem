@@ -22,7 +22,7 @@ Assigned Node: aw-4r12-n03.hpc.mcgill.ca
 
 (ssh requires port flag -p 57328)
 
-password: BRcwDNwo3X
+password: ask Dave
 
 [running notebook (requires password)](https://aw-4r12-n03.hpc.mcgill.ca:8088)
 
