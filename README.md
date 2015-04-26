@@ -1,5 +1,13 @@
 # twitfem
 Feminism Tweet Analysis - Big Data Week Hackathon Project
+
+Attitude analysis and corpus analytics of 1M tweets about feminism
+
+[Link to slides.com presentation](https://slides.com/prooffreader/deck-4/)
+
+Using a corpus of 988,000 tweets retrieved from Twitter's Search API from January to April 2015 containing the words "feminism", "feminist" or "feminists", we trained a classifier to label them as pro-feminist, anti-feminist or neither (regardless of sentiment), and determined the most characteristic words used by each group with the log-likelihood keyness method.
+
+
 ### GRAPHS:
 - [Most Characteristic Words in Pro and Anti Feminist Tweets](https://plot.ly/~iamzaf/436/most-characteristic-words-in-pro-and-anti-feminist-tweets/)
 - [Low Activity Accounts vs All Accounts](https://plot.ly/~iamzaf/557/low-activity-accounts-vs-all-accounts/)
