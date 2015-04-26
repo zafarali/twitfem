@@ -11,7 +11,7 @@ scp -P 57328 class03@aw-4r12-n03.hpc.mcgill.ca:/home/class03/path_to_file /local
 ```
 #####PUT a file
 ```bash
-scp -P 57328 /local_path_to_put_file   class03@aw-4r12-n03.hpc.mcgill.ca:/home/class03/path_to_file
+scp -P 57328 /local_path_to_put_file class03@aw-4r12-n03.hpc.mcgill.ca:/home/class03/path_to_file
 ```
 Team User Name: class03
 
