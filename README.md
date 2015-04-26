@@ -1,5 +1,8 @@
 # twitfem
 Feminism Tweet Analysis - Big Data Week Hackathon Project
+### GRAPHS:
+- [Most Characteristic Words in Pro and Anti Feminist Tweets](https://plot.ly/~iamzaf/436/most-characteristic-words-in-pro-and-anti-feminist-tweets/)
+- [Low Activity Accounts vs All Accounts](https://plot.ly/~iamzaf/557/low-activity-accounts-vs-all-accounts/)
 
 ##HPC McGill
 [Instructions](https://www.tinyurl.com/bdw-mcgillhpc)
